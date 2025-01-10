@@ -1,0 +1,71 @@
+version: "3.8"
+services:
+  web_green_1:
+    image: docker.io/fureasu346/nginx:web
+    container_name: web_green_1
+    hostname: web_green_1
+    volumes:
+      - ./web_green:/var/www/html
+    networks:
+      - green_backend
+    restart: always
+  
+  web_green_2:
+    image: docker.io/fureasu346/nginx:web
+    container_name: web_green_2
+    hostname: web_green_2
+    volumes:
+      - ./web_green:/var/www/html
+    networks:
+      - green_backend
+    restart: always
+  
+  web_blue_1:
+    image: docker.io/fureasu346/nginx:web
+    container_name: web_blue_1
+    hostname: web_blue_1
+    volumes:
+      - ./web_blue:/var/www/html
+    networks:
+      - blue_backend
+    restart: always
+  
+  web_blue_2:
+    image: docker.io/fureasu346/nginx:web
+    container_name: web_blue_2
+    hostname: web_blue_2
+    volumes:
+      - ./web_blue:/var/www/html
+    networks:
+      - blue_backend
+    restart: always
+
+  lb:
+    image: docker.io/fureasu346/nginx:lb
+    container_name: nginx_lb
+    hostname: nginx-lb
+    volumes:
+      - ./lb:/config
+    networks:
+      frontend:
+        ipv4_address: 172.20.0.27
+      green_backend: {}
+      blue_backend: {}
+    restart: always
+    depends_on:
+      - web_green_1
+      - web_blue_1
+
+networks:
+  green_backend:
+    driver: bridge
+  blue_backend:
+    driver: bridge
+  frontend:
+    driver: ipvlan
+    driver_opts:
+      parent: ens33
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.254
