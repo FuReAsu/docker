@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 services:
   web_green_1:
     image: docker.io/fureasu346/nginx:web
@@ -47,10 +47,11 @@ services:
     volumes:
       - ./lb:/config
     networks:
-      frontend:
-        ipv4_address: 172.20.0.27
-      green_backend: {}
-      blue_backend: {}
+      - frontend
+      - green_backend
+      - blue_backend
+    ports:
+      - "8000:80"
     restart: always
     depends_on:
       - web_green_1
@@ -59,13 +60,9 @@ services:
 networks:
   green_backend:
     driver: bridge
+    internal: true
   blue_backend:
     driver: bridge
+    internal: true
   frontend:
-    driver: ipvlan
-    driver_opts:
-      parent: ens33
-    ipam:
-      config:
-        - subnet: 172.20.0.0/24
-          gateway: 172.20.0.254
+    driver: bridge
