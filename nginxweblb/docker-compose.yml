@@ -56,7 +56,7 @@ services:
     depends_on:
       - web_green_1
       - web_blue_1
-    command: /config/nginx_start.sh
+    command: /bin/bash -c "chmod +x /config/start_nginx.sh && /config/start_nginx.sh"
 
 networks:
   green_backend:
