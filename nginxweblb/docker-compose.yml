@@ -45,7 +45,7 @@ services:
     container_name: nginx_lb
     hostname: nginx-lb
     volumes:
-      - ./lb:/config
+      - ./lb/nginx.conf:/etc/nginx/nginx.conf
     networks:
       - frontend
       - green_backend
@@ -56,7 +56,6 @@ services:
     depends_on:
       - web_green_1
       - web_blue_1
-    command: /bin/bash -c "chmod +x /config/start_nginx.sh && /config/start_nginx.sh"
 
 networks:
   green_backend:
