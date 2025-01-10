@@ -31,7 +31,20 @@
     </div>
     <div class="footer">
         <p>The server is hosted at: <strong><?php echo gethostname(); ?></strong></p>
-        <p>You are accessing from: <?php $client_ip = $_SERVER['REMOTE_ADDR']; echo $client_ip;?> </p>
+        <p>You are accessing from: 
+            <?php
+            // Check if the 'X-Real-IP' header exists
+            if (!empty($_SERVER['HTTP_X_REAL_IP'])) {
+                // If 'X-Real-IP' is set, use it as the real client IP
+                $client_ip = $_SERVER['HTTP_X_REAL_IP'];
+            } else {
+                // Fallback to 'REMOTE_ADDR' if 'X-Real-IP' is not set
+                $client_ip = $_SERVER['REMOTE_ADDR'];
+            }
+
+            echo $client_ip;
+            ?>
+        </p>
     </div>
 </body>
 </html>
