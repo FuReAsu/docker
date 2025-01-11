@@ -28,14 +28,14 @@
     <div class="header">
         <h1>NGINX TEST WEB SERVER!</h1>
         <p>webserver hosted on nginx container</p>
-        <p>You have reached <?php $host=$_SERVER['HOST']; echo $host; ?> </p>
+        <p>You have reached <?php $host=$_SERVER['HTTP_HOST']; echo $host; ?> </p>
     </div>
     <div class="footer">
         <p>The server is hosted at: <strong><?php echo gethostname(); ?></strong></p>
         <p>Remote Address: <?php $remote_addr=$_SERVER['REMOTE_ADDR']; echo $remote_addr; ?></p>
         <p>X Real IP: 
             <?php 
-                if (!empty($_SERVSER['HTTP_X_REAL_IP'])) {
+                if (!empty($_SERVER['HTTP_X_REAL_IP'])) {
                      $x_real_ip = $_SERVER['HTTP_X_REAL_IP'];
 
                 } else {
