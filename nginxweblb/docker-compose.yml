@@ -16,7 +16,7 @@ services:
     container_name: web_green_2
     hostname: web_green_2
     volumes:
-      - ./web_green:/var/www/html
+      - ./web_green/web:/var/www/html
       - ./web_green/log/2:/var/log/nginx
     networks:
       - green_backend
@@ -27,7 +27,7 @@ services:
     container_name: web_blue_1
     hostname: web_blue_1
     volumes:
-      - ./web_blue:/var/www/html
+      - ./web_blue/web:/var/www/html
       - ./web_green/log/1:/var/log/nginx
     networks:
       - blue_backend
@@ -38,7 +38,7 @@ services:
     container_name: web_blue_2
     hostname: web_blue_2
     volumes:
-      - ./web_blue:/var/www/html
+      - ./web_blue/web:/var/www/html
       - ./web_green/log/2:/var/log/nginx
     networks:
       - blue_backend
