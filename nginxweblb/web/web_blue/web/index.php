@@ -6,7 +6,7 @@
     <title>TEST WEB SVR</title>
     <style>
         body {
-            background-color: lightskyblue;
+            background-color: blue;
             color: black;
             text-align: center;
             font-family:'Times New Roman', Times, serif;
