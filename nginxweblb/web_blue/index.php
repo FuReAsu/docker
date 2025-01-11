@@ -28,21 +28,33 @@
     <div class="header">
         <h1>NGINX TEST WEB SERVER!</h1>
         <p>webserver hosted on nginx container</p>
+        <p>You have reached <?php $host=$_SERVER['HOST']; echo $host; ?> </p>
     </div>
     <div class="footer">
         <p>The server is hosted at: <strong><?php echo gethostname(); ?></strong></p>
-        <p>You are accessing from: 
-            <?php
-            // Check if the 'X-Real-IP' header exists
-            if (!empty($_SERVER['HTTP_X_REAL_IP'])) {
-                // If 'X-Real-IP' is set, use it as the real client IP
-                $client_ip = $_SERVER['HTTP_X_REAL_IP'];
-            } else {
-                // Fallback to 'REMOTE_ADDR' if 'X-Real-IP' is not set
-                $client_ip = $_SERVER['REMOTE_ADDR'];
-            }
+        <p>Remote Address: <?php $remote_addr=$_SERVER['REMOTE_ADDR']; echo $remote_addr; ?></p>
+        <p>X Real IP: 
+            <?php 
+                if (!empty($_SERVSER['HTTP_X_REAL_IP'])) {
+                     $x_real_ip = $_SERVER['HTTP_X_REAL_IP'];
 
-            echo $client_ip;
+                } else {
+                    $x_real_ip = 'NULL';
+
+                }
+                echo $x_real_ip;
+            ?>
+        </p>
+        <p> X Forwarded For:
+            <?php
+                if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                    $x_forwarded_for= $_SERVER['HTTP_X_FORWARDED_FOR'];
+                
+                } else {
+                    $x_forwarded_for = 'NULL';
+
+                }
+                echo $x_forwarded_for;
             ?>
         </p>
     </div>
