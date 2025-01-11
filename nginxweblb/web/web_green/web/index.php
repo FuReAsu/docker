@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: lightgreen;
-            color: white;
+            color: black;
             text-align: center;
             font-size: 30px;
             font-family:'Times New Roman', Times, serif;

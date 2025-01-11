@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: lightskyblue;
-            color: white;
+            color: black;
             text-align: center;
             font-family:'Times New Roman', Times, serif;
             font-size: 30px;
