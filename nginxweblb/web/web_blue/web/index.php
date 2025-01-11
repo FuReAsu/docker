@@ -9,6 +9,7 @@
             background-color: blue;
             color: white;
             text-align: center;
+            font-family:'Times New Roman', Times, serif;
             font-size: 30px;
             display: flex;
             flex-direction: column;

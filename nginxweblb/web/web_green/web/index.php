@@ -10,6 +10,7 @@
             color: white;
             text-align: center;
             font-size: 30px;
+            font-family:'Times New Roman', Times, serif;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
