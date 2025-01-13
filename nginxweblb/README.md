@@ -5,3 +5,5 @@ There are two backend networks for the webservers and one frontend for lb.
 These two networks will be internal.
 
 Frontend bridge network will be assigned to lb and lb will be assigned port 8000 for external access.
+
+To choose between http and http deployment, change the LoadBalancer's config file http-nginx.conf or https-nginx.conf.

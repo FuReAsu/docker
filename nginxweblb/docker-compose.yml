@@ -53,7 +53,8 @@ services:
     container_name: nginx_lb
     hostname: nginx-lb
     volumes:
-      - ./lb/config/nginx.conf:/etc/nginx/nginx.conf
+      - ./lb/config/certs:/etc/nginx/certs
+      - ./lb/config/https-nginx.conf:/etc/nginx/nginx.conf
       - ./lb/log:/var/log/nginx
     networks:
       - frontend
