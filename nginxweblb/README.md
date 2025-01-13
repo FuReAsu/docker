@@ -7,3 +7,5 @@ These two networks will be internal.
 Frontend bridge network will be assigned to lb and lb will be assigned port 8000 for external access.
 
 To choose between http and http deployment, change the LoadBalancer's config file http-nginx.conf or https-nginx.conf.
+
+Logs are stored in lb/log, web/web_green/log and web/web_blue/log
