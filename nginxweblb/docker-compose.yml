@@ -62,6 +62,7 @@ services:
       - blue_backend
     ports:
       - "8000:80"
+      - "9000:443"
     restart: always
     depends_on:
       - web_green_1
