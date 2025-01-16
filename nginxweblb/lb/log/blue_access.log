@@ -1,5 +1,0 @@
-192.168.110.125 - - [15/Jan/2025:17:05:34 +0630] "GET / HTTP/1.1" "blue.test" 200 1171 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0" "-" "-" Proxy: "web_blue" "10.100.2.11:80"
-192.168.110.125 - - [15/Jan/2025:17:05:36 +0630] "GET / HTTP/1.1" "blue.test" 200 1171 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0" "-" "-" Proxy: "web_blue" "10.100.2.11:80"
-192.168.110.125 - - [15/Jan/2025:17:05:36 +0630] "GET /favicon.ico HTTP/1.1" "blue.test" 499 0 "https://blue.test/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0" "-" "-" Proxy: "web_blue" "10.100.2.11:80"
-192.168.110.125 - - [15/Jan/2025:17:05:37 +0630] "GET / HTTP/1.1" "blue.test" 200 1171 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0" "-" "-" Proxy: "web_blue" "10.100.2.12:80"
-192.168.110.125 - - [15/Jan/2025:17:05:37 +0630] "GET / HTTP/1.1" "blue.test" 200 1171 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0" "-" "-" Proxy: "web_blue" "10.100.2.12:80"
