@@ -29,6 +29,8 @@ services:
     - ./log:/var/log/nginx
     networks:
     - flask_frontend
+    ports:
+    - "80:80"
     restart: always
 
 networks:
