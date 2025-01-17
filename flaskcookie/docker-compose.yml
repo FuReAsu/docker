@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  flask_1:
+    image: docker.io/fureasu346/flask:rocky9
+    container_name: flask_1
+    hostname: srv-flask-1
+    volumes:
+    - ./app:/flask_app
+    networks:
+    - flask_frontend
+    restart: always
+  
+  flask_2:
+    image: docker.io/fureasu346/flask:rocky9
+    container_name: flask_2
+    hostname: srv-flask-2
+    volumes:
+    - ./app:/flask_app
+    networks:
+    - flask_frontend
+    restart: always
+  
+  flask_lb:
+    image: docker.io/fureasu346/nginx:lb
+    container_name: flask_lb
+    hostname: srv-flask-lb
+    volumes:
+    - ./lb/nginx.conf:/etc/nginx/nginx.conf
+    - ./log:/var/log/nginx
+    networks:
+    - flask_frontend
+    restart: always
+
+networks:
+  flask_frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.100.224.0/24
+          gateway: 10.100.224.1
+
