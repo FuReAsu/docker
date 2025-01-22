@@ -1,6 +1,6 @@
 python flask web app setup to test session cookies and session persistence via cookies.
 
-flask is configured to set session cookie upon fist visit.
+flask is configured to set session cookie upon first visit.
 
 Subsequent visits to the website will show the session cookie in the page.
 
