@@ -22,7 +22,7 @@ services:
       MYSQL_ROOT_PASSWORD: root_P@ssw0rd
       MYSQL_USERNAME: webadmin
       MYSQL_USER_PASSWORD: webadmin_P@ssw0rd
-      MYSQL_REMOTE_HOST: websvr.webdbsvr_backend
+      MYSQL_REMOTE_HOST: '%'
     hostname: dbsvr
     volumes:
       - ./db/queries:/home/ubuntu/queries

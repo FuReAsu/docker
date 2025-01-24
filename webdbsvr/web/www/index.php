@@ -8,6 +8,17 @@
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
         th { background-color: blue; }
+        .footer{
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +73,34 @@ if ($result && $result->num_rows > 0) {
 
 $conn->close();
 ?>
+<div class="footer">
+        <p>The server is hosted at: <strong><?php echo gethostname(); ?></strong></p>
+        <p>Remote Address: <?php $remote_addr=$_SERVER['REMOTE_ADDR']; echo $remote_addr; ?></p>
+        <p>X Real IP: 
+            <?php 
+                if (!empty($_SERVER['HTTP_X_REAL_IP'])) {
+                     $x_real_ip = $_SERVER['HTTP_X_REAL_IP'];
+
+                } else {
+                    $x_real_ip = 'NULL';
+
+                }
+                echo $x_real_ip;
+            ?>
+        </p>
+        <p> X Forwarded For:
+            <?php
+                if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                    $x_forwarded_for= $_SERVER['HTTP_X_FORWARDED_FOR'];
+                
+                } else {
+                    $x_forwarded_for = 'NULL';
+
+                }
+                echo $x_forwarded_for;
+            ?>
+        </p>
+</div>
 
 </body>
 </html>
