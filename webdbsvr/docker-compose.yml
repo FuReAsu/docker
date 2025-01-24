@@ -4,6 +4,12 @@ services:
     build: web
     container_name: websvr
     hostname: websvr
+    environment:
+      WEBSITE_NAME: phpdb.test
+      DB_SERVERNAME: dbsvr
+      DB_NAME: testdb
+      DB_USERNAME: webadmin
+      DB_PASSWORD: webadmin_P@ssw0rd
     ports:
       - "7000:80"
     volumes:
@@ -18,12 +24,12 @@ services:
   db:
     build: db
     container_name: dbsvr
+    hostname: dbsvr
     environment:
       MYSQL_ROOT_PASSWORD: root_P@ssw0rd
       MYSQL_USERNAME: webadmin
       MYSQL_USER_PASSWORD: webadmin_P@ssw0rd
       MYSQL_REMOTE_HOST: '%'
-    hostname: dbsvr
     volumes:
       - ./db/queries:/home/ubuntu/queries
     networks:

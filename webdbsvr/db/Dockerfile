@@ -1,9 +1,9 @@
 FROM ubuntu:latest
  
-ENV MYSQL_ROOT_PASSWORD=test
-ENV MYSQL_USERNAME=fureasu
-ENV MYSQL_REMOTE_HOST=192.168.1.2
-ENV MYSQL_USER_PASSWORD=test
+ENV MYSQL_ROOT_PASSWORD=
+ENV MYSQL_USERNAME=
+ENV MYSQL_REMOTE_HOST=
+ENV MYSQL_USER_PASSWORD=
 
 RUN apt-get update && apt-get install -y mysql-server && rm -rf /var/lib/apt/lists/*
 

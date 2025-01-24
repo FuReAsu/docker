@@ -8,15 +8,14 @@
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
         th { background-color: blue; }
-        .footer{
+        footer{
             margin-top: auto;
-            margin-bottom: 40px;
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
             font-size: 20px;
             margin: 0;
             padding: 20px;
-            background-color:rgb(4, 34, 226);
+            background-color: white;
             border-top: 1px solid #ddd;
         }
     </style>
@@ -24,13 +23,14 @@
 <body>
 
 <h2>User Information</h2>
+<h2>Server: <strong><?php echo gethostname(); ?></strong></h2>
 
 <?php
 // Database connection
-$servername = "dbsvr";
-$username = "webadmin";
-$password = "webadmin_P@ssw0rd";
-$dbname = "testdb";
+$servername = getenv('DB_SERVERNAME');
+$username = getenv('DB_USERNAME');
+$password = getenv('DB_PASSWORD');
+$dbname = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -73,8 +73,8 @@ if ($result && $result->num_rows > 0) {
 
 $conn->close();
 ?>
-<div class="footer">
-        <p>The server is hosted at: <strong><?php echo gethostname(); ?></strong></p>
+<footer>
+	<p>You have reached <?php $host=$_SERVER['HTTP_HOST']; echo $host; ?> </p>
         <p>Remote Address: <?php $remote_addr=$_SERVER['REMOTE_ADDR']; echo $remote_addr; ?></p>
         <p>X Real IP: 
             <?php 
@@ -100,7 +100,7 @@ $conn->close();
                 echo $x_forwarded_for;
             ?>
         </p>
-</div>
+</footer>
 </body>
 </html>
 
