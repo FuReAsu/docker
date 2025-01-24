@@ -13,10 +13,6 @@
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
             font-size: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100vh;
             margin: 0;
         }
     </style>
