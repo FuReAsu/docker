@@ -9,10 +9,10 @@
         th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
         th { background-color: blue; }
         .footer{
-            margin-bottom: 5px;
+            margin-bottom: 40px;
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
-            font-size: 15px;
+            font-size: 20px;
             margin: 0;
         }
     </style>
