@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y apache2 php php-mysql  && apt-get upgra
 RUN sed -i '$ a ServerName ${WEBSITE_NAME}' /etc/apache2/apache2.conf
 
 RUN mv /var/www/html/index.html /var/www/html/index.html.bk
-COPY www/* /var/html
+COPY www/* /var/www/html
 
 STOPSIGNAL SIGKILL
 
