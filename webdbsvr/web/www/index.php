@@ -9,11 +9,15 @@
         th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
         th { background-color: blue; }
         .footer{
+            margin-top: auto;
             margin-bottom: 40px;
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
             font-size: 20px;
             margin: 0;
+            padding: 20px;
+            background-color:rgb(4, 34, 226);
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
