@@ -12,6 +12,7 @@ RUN sed -i "s/bind-address\s*=.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.
 EXPOSE 3306
 WORKDIR /home/ubuntu
 RUN mkdir /home/ubuntu/queries
+COPY queries/* /home/ubuntu/queries
 COPY mysql-entrypoint.sh /usr/local/bin/mysql-entrypoint.sh
 RUN chmod +x /usr/local/bin/mysql-entrypoint.sh
 
