@@ -84,4 +84,5 @@ def home():
             message = 'Your session cookie has been set'
     return render_template_string(HTML_TEMPLATE, message=message, server_name=server_name, client_ip=client_ip, host=host)
 
-app.run(host='0.0.0.0',debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',debug=True)
