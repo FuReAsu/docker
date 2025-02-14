@@ -11,9 +11,9 @@ FILE_PATH = os.getenv('DATA_PATH','data/data.txt')
 if not os.path.exists(FILE_PATH):
     with open(FILE_PATH, "w") as f:
         pass
-    print(f"data file created at {FILE_PATH}")
+    app.logger.info(f"data file created at {FILE_PATH}")
 else:
-    print (f"data file already exists")
+    app.logger.info(f"data file already exists")
 
 HTML_PAGE = '''
 <!DOCTYPE html>
@@ -91,10 +91,10 @@ def index():
         input_data = request.form.get('input', '')
         with open(FILE_PATH, 'a') as f:
             f.write(f'{count} '+ input_data + '\n')
-        print(f"{client_ip} - - [{now}] data inputed: {input_data}")
+        app.logger.info(f"{client_ip} | data inputed: {input_data}")
     elif button_clicked == 'clearButton':
         open(FILE_PATH, 'w').close()
-        print(f"{client_ip} - - [{now}] data wiped")
+        app.logger.info(f"{client_ip} | data wiped")
     with open(FILE_PATH, 'r') as f:
         content = f.read()
     

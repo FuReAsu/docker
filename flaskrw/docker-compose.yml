@@ -4,7 +4,7 @@ services:
     environment:
       FLASK_APP: storage_test.py
       FLASK_RUN_PORT: 8000
-      DATA_PATH: /app/data/data.txt
+      DATA_PATH: /app/data.txt
     volumes:
     - ./app:/app
     networks:
