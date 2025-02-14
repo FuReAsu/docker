@@ -1,10 +1,6 @@
 services: 
   flask:
     image: docker.io/fureasu346/flask:alpine
-    deploy:
-      mode: replicated
-      replicas: 2
-      endpoint_mode: vip
     environment:
       FLASK_APP: storage_test.py
       FLASK_RUN_PORT: 8000
@@ -14,7 +10,7 @@ services:
     networks:
     - flask_frontend
     ports:
-    - "80:8000"
+    - "8000:80"
     restart: always
 
 networks:
