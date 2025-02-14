@@ -1,0 +1,25 @@
+services: 
+  flask:
+    image: docker.io/fureasu346/flask:alpine
+    deploy:
+      mode: replicated
+      replicas: 2
+      endpoint_mode: vip
+    container_name: flask_rw
+    environment:
+      FLASK_APP: storage_test.py
+      DATA_PATH: /app/data/data.txt
+    volumes:
+    - ./app:/app
+    networks:
+    - flask_frontend
+    restart: always
+
+networks:
+  flask_frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 10.80.128.0/24
+         gateway: 10.80.128.1
