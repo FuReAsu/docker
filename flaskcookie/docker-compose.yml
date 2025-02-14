@@ -1,21 +1,25 @@
 version: "3.9"
 services:
   flask_1:
-    image: docker.io/fureasu346/flask:rocky9
+    image: docker.io/fureasu346/flask:rocky
     container_name: flask_1
     hostname: srv-flask-1
+    environment:
+      FLASK_APP: cookie_test.py
     volumes:
-    - ./app:/flask_app
+    - ./app:/app
     networks:
     - flask_frontend
     restart: always
   
   flask_2:
-    image: docker.io/fureasu346/flask:rocky9
+    image: docker.io/fureasu346/flask:rocky
     container_name: flask_2
     hostname: srv-flask-2
+    environment:
+      FLASK_APP: cookie_test.py
     volumes:
-    - ./app:/flask_app
+    - ./app:/app
     networks:
     - flask_frontend
     restart: always
