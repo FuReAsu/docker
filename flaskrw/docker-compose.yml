@@ -5,14 +5,16 @@ services:
       mode: replicated
       replicas: 2
       endpoint_mode: vip
-    container_name: flask_rw
     environment:
       FLASK_APP: storage_test.py
+      FLASK_RUN_PORT: 8000
       DATA_PATH: /app/data/data.txt
     volumes:
     - ./app:/app
     networks:
     - flask_frontend
+    ports:
+    - "8000:80"
     restart: always
 
 networks:
