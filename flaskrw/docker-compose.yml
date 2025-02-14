@@ -10,7 +10,7 @@ services:
     networks:
     - flask_frontend
     ports:
-    - "8000:80"
+    - "80:8000"
     restart: always
 
 networks:
