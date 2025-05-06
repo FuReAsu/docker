@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <h1>Simple-Flask</h1>
+    <h2>Routes Available</h2>
+    <ul>
+        {% for name, url in routes.items() %}
+            <li><a href="{{ url }}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

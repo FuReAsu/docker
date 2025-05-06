@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask I/O Test</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <h1> Flask I/O Test </h1>
+    <p> Flask App to test persistent storage </p>
+    <p>Server Name: [ {{server_name}} ]</p>
+    <p>Client IP: [ {{client_ip}} ]</p>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function submitData(event, action) {
+            event.preventDefault();
+            let inputValue = document.getElementById('inputBox').value;
+            let formData = new URLSearchParams();
+            if (action === 'submit') {
+                formData.append('input', inputValue);
+                formData.append('button', 'submitButton');
+            } else if (action === 'clear') {
+                formData.append('button', 'clearButton');
+            }
+            
+            fetch("{{ url_for('input.input') }}", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: formData.toString()
+            })
+            .then(() => {
+                document.getElementById('inputBox').value = '';
+                location.reload();
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="inputBox" placeholder="Enter something">
+    <button onclick="submitData(event, 'submit')">Submit</button>
+    <button onclick="submitData(event, 'clear')">Clear</button>
+    <pre id="outputBox">{{ content }}</pre>
+</body>
+</html>

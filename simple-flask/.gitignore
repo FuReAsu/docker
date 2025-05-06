@@ -1,0 +1,4 @@
+app/data
+app/log
+app/simpleflask/__pycache__
+app/__pycache__
