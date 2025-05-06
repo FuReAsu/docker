@@ -1,0 +1,50 @@
+services:
+  wso2am-postgres:
+    image: fureasu346/wso2am-postgres:17-alpine-v2
+    container_name: wso2am-postgres
+    hostname: wso2am-postgres
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    networks:
+      - wso2am
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512M"
+        reservations:
+          cpus: "0.5"
+          memory: "256M"
+    restart: always
+  wso2am:
+    image: fureasu346/wso2am:4.4.0-rocky
+    container_name: wso2am
+    hostname: wso2am
+    volumes:
+      - ./docker-deployment.toml:/home/wso2carbon/wso2am-4.4.0/repository/conf/deployment.toml:z
+      - ./client-truststore.jks:/home/wso2carbon/wso2am-4.4.0/repository/resources/security/client-truststore.jks:z
+      - ./wso2am-tls.p12:/home/wso2carbon/wso2am-4.4.0/repository/resources/security/wso2am-tls.p12:z
+    ports:
+      - 8280:8280
+      - 8243:8243
+      - 9099:9099
+      - 8099:8099
+      - 9443:9443
+      - 9021:9021
+      - 8021:8021
+    networks:
+      - wso2am
+    depends_on:
+      - wso2am-postgres
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "2G"
+        reservations:
+          cpus: "1"
+          memory: "1G"
+    restart: always
+
+networks:
+  wso2am:
