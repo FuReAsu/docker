@@ -24,6 +24,7 @@ services:
       - ./docker-deployment.toml:/home/wso2carbon/wso2am-4.4.0/repository/conf/deployment.toml:z
       - ./client-truststore.jks:/home/wso2carbon/wso2am-4.4.0/repository/resources/security/client-truststore.jks:z
       - ./wso2am-tls.p12:/home/wso2carbon/wso2am-4.4.0/repository/resources/security/wso2am-tls.p12:z
+      - ./wso2am-sequences:/home/wso2carbon/wso2am-4.4.0/repository/deployment/server:z
     ports:
       - 8280:8280
       - 8243:8243
