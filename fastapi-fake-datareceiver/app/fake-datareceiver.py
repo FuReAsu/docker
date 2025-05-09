@@ -16,3 +16,7 @@ def write_data(payload: Message):
     print(f"Received: {payload.data}")
 
     return {"status": "written", "received": payload.data}
+
+@app.get("/")
+def info():
+    return {"app": "fake data receiver", "paths": ["/write"]}

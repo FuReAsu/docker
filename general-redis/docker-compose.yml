@@ -1,0 +1,23 @@
+services:
+  redis:
+    build: .
+    container_name: redis-8-alpine
+    hostname: redis-8-alpine
+    volumes:
+      - ./redis-data:/data:z
+    networks:
+      - redis
+    ports:
+      - 6379:6379
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "1G"
+        reservations:
+          cpus: "0.5"
+          memory: "256M"
+    restart: always
+
+networks:
+  redis:

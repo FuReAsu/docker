@@ -1,5 +1,7 @@
 FROM python:3.12.10-alpine3.21
 
+ENV TZ=Asia/Yangon
+
 RUN mkdir /app
 COPY app /app/
 WORKDIR /app
@@ -9,4 +11,4 @@ RUN apk add --no-cache cargo
 
 RUN pip install -r requirements.txt
 
-CMD ["uvicorn","fake-decryptor:app","--port=5000","--host=0.0.0.0"]
+CMD ["uvicorn","fake-cryptomodule:app","--port=5000","--host=0.0.0.0"]
