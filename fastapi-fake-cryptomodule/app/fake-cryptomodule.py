@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -6,7 +6,6 @@ app = FastAPI()
 # Simulated encryption/decryption (for demonstration)
 def fake_decrypt(encrypted_text: str) -> str:
     try:
-        print(f"/decrypt -> Received: {encrypt_text}")
         append=" decrypted"
         return encrypted_text+append  
     except Exception as e:
@@ -14,7 +13,6 @@ def fake_decrypt(encrypted_text: str) -> str:
 
 def fake_encrypt(unencrypted_text: str) -> str:
     try:
-        print(f"/encrypt -> Received: {encrypt_text}")
         append=" encrypted"
         return unencrypted_text+append
     except Exception as e:
@@ -27,13 +25,19 @@ class UnencryptedText(BaseModel):
     data: str
 
 @app.post("/decrypt")
-def decrypt_text(payload: EncryptedText):
+def decrypt_text(payload: EncryptedText, response: Response):
+    print(f"/decrypt -> Received: {payload.data}")
     decrypted = fake_decrypt(payload.data)
+    print(f"/decrypt -> Response: {decrypted}")
+    response.headers["Access-Control-Allow-Origin"] = "*"
     return {"data": decrypted}
 
 @app.post("/encrypt")
-def encrypt_text(payload: UnencryptedText):
+def encrypt_text(payload: UnencryptedText, response: Response):
+    print(f"/encrypt -> Received: {payload.data}")
     encrypted = fake_encrypt(payload.data)
+    print(f"/encrypt -> Response: {encrypted}")
+    response.headers["Access-Control-Allow-Origin"] = "*"
     return {"data": encrypted}
 
 @app.get("/")
