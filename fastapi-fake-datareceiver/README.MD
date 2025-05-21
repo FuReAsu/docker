@@ -15,3 +15,8 @@ and response in {"status": "written", "id": "ID", "data": "DATA"}
 ## v3 ##
 
 Same as v2 but also respond the headers and their values. The Request Headers are also logged. This is to test Header handling by the reverse proxy, load balancer or API Gateway.
+
+## v4 ##
+
+Write the received data to a file and logs it.
+Extracts payload value, insert "Status": "Written" and reply With the Whole Original Payload. The log also includes a time stamp now !!
