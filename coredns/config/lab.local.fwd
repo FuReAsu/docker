@@ -1,0 +1,12 @@
+$TTL 3600
+@       IN  SOA ns.lab.local. admin.lab.local. (
+            2025060501 ; serial
+            7200       ; refresh
+            1200       ; retry
+            1209600    ; expire
+            3600 )     ; minimum
+
+@       IN  NS      ns.lab.local.
+ns      IN  A       192.168.64.1
+
+ntp			IN 	A				192.168.64.1

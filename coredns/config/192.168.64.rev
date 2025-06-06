@@ -1,0 +1,13 @@
+$TTL 3600
+@       IN  SOA ns.k8s.local. admin.k8s.local. (
+            2025060401 ; serial
+            7200       ; refresh
+            1200       ; retry
+            1209600    ; expire
+            3600 )     ; minimum
+
+@       IN  NS      ns.k8s.local.
+10			IN  PTR     k8s-lab-m1.k8s.local.
+11      IN  PTR     k8s-lab-w1.k8s.local.
+12			IN  PTR     k8s.lab-w2.k8s.local.
+1				IN 	PTR 		ntp.lab.local.

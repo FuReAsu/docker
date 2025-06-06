@@ -1,0 +1,26 @@
+services:
+  coredns:
+    image: docker.io/fureasu346/chrony:alpine
+    container_name: chrony
+    hostname: chrony
+    volumes:
+      - ./config/chrony.conf:/etc/chrony/chrony.conf
+    ports:
+      - "192.168.64.1:123:123/udp"
+    networks:
+      - lab-central
+    deploy:
+      resources:
+          limits:
+            cpus: "1"
+            memory: "512M"
+          reservations:
+            cpus: "0.5"
+            memory: "256M"
+    restart: always
+    cap_add:
+      - SYS_TIME
+networks:
+  lab-central:
+    external: true
+    name: lab-central

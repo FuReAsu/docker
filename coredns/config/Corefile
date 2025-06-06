@@ -1,0 +1,29 @@
+.:53 {
+		forward . 8.8.8.8 1.1.1.1
+		log
+		errors
+}
+ 
+k8s.local {
+		file /coredns/config/k8s.local.fwd
+		log
+		errors
+}
+
+64.168.192.in-addr.arpa {
+		file /coredns/config/192.168.64.rev 
+		log
+		errors
+}
+
+intmm.net intsmm.net int {
+		forward . 172.20.211.41 172.20.211.42
+		log
+		errors
+}
+
+lab.local {
+		file /coredns/config/lab.local.fwd
+		log
+		errors
+}

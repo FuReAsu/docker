@@ -1,0 +1,24 @@
+services:
+  coredns:
+    image: docker.io/fureasu346/coredns:1.12.2
+    container_name: coredns
+    hostname: coredns
+    volumes:
+      - ./config:/coredns/config
+    ports:
+      - "192.168.64.1:53:53/udp"
+    networks:
+      - lab-central
+    deploy:
+      resources:
+          limits:
+            cpus: "1"
+            memory: "512M"
+          reservations:
+            cpus: "0.5"
+            memory: "256M"
+    restart: always
+networks:
+  lab-central:
+    external: true
+    name: lab-central

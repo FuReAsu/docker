@@ -3,7 +3,6 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 import secrets
 import socket
 
-
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_port=1, x_prefix=1)
 app.secret_key = secrets.token_hex(32)   # Replace with a secure random key
@@ -74,7 +73,7 @@ def home():
     else:
         client_ip = request.remote_addr
 
-    host = request.host 
+    host = request.host
 
     if request.method == 'GET':
         if 'session_id' in session:
@@ -83,6 +82,5 @@ def home():
             session['session_id'] = secrets.token_hex(16)
             message = 'Your session cookie has been set'
     return render_template_string(HTML_TEMPLATE, message=message, server_name=server_name, client_ip=client_ip, host=host)
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
