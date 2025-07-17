@@ -10,3 +10,10 @@ $TTL 3600
 ns      IN  A       192.168.64.1
 
 ntp			IN 	A				192.168.64.1
+envoyserver			IN	A					192.168.32.11
+webserver-1 		IN 	A 				192.168.32.21
+webserver-2 		IN 	A 				192.168.32.22
+mmrcis					IN  A         192.168.32.11
+simple-flask    IN  A         192.168.32.33
+test-lb-1       IN  A         192.168.32.31
+test-lb-2       IN  A         192.168.32.32

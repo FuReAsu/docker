@@ -10,6 +10,18 @@ k8s.local {
 		errors
 }
 
+int-test.lab {
+		forward . 172.20.204.44
+		log 
+		errors
+}
+
+projectx.lab {
+    forward . 172.20.211.50
+		log
+		errors
+}
+
 64.168.192.in-addr.arpa {
 		file /coredns/config/192.168.64.rev 
 		log
@@ -57,5 +69,3 @@ lab.local {
 		log
 		errors
 }
-
-

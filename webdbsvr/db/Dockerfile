@@ -16,10 +16,10 @@ WORKDIR /home/ubuntu
 
 RUN mkdir /home/ubuntu/queries
 
-COPY queries/* /home/ubuntu/queries
+COPY queries /home/ubuntu/queries/
 
-COPY mysql-entrypoint.sh /usr/local/bin/mysql-entrypoint.sh
+COPY mysql-entrypoint.sh /home/ubuntu/ 
 
-RUN chmod +x /usr/local/bin/mysql-entrypoint.sh
+RUN chmod +x /home/ubuntu/mysql-entrypoint.sh
 
-ENTRYPOINT ["mysql-entrypoint.sh"]
+ENTRYPOINT ["/home/ubuntu/mysql-entrypoint.sh"]

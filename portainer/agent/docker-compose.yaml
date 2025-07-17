@@ -1,0 +1,40 @@
+services:
+  portainer-agent-A:
+    image: portainer/agent:2.26.1
+    hostname: portainer_agent_A
+    container_name: portainer_agent_A
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /:/host
+    ports:
+      - "9001:9001"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "1G"
+        reservations:
+          cpus: "0.5"
+          memory: "512M"
+
+  portainer-agent-B:
+    image: portainer/agent:2.26.1
+    hostname: portainer_agent_B
+    container_name: portainer_agent_B
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /:/host
+    ports:
+      - "9002:9001"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "1G"
+        reservations:
+          cpus: "0.5"
+          memory: "512M"
