@@ -7,9 +7,9 @@ $TTL 3600
             3600 )     ; minimum
 
 @       IN  NS      ns.lab.local.
-ns      IN  A       192.168.64.1
+ns      IN  A       172.21.0.53
 
-ntp			IN 	A				192.168.64.1
+ntp			IN 	A				172.21.0.123
 envoyserver			IN	A					192.168.32.11
 webserver-1 		IN 	A 				192.168.32.21
 webserver-2 		IN 	A 				192.168.32.22
@@ -17,3 +17,9 @@ mmrcis					IN  A         192.168.32.11
 simple-flask    IN  A         192.168.32.33
 test-lb-1       IN  A         192.168.32.31
 test-lb-2       IN  A         192.168.32.32
+k8s-master-1 		IN 	A 				192.168.56.10
+k8s-worker-1    IN  A					192.168.56.11
+k8s-worker-2    IN  A 				192.168.56.12
+k8s-control     IN  A					192.168.56.10
+k8s-ubuntu-1    IN  A 				192.168.56.13
+k8s-ubuntu-2    IN  A 				192.168.56.14
