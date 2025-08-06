@@ -1,0 +1,15 @@
+{ 
+	"userinfo": [
+		{ "id": "1", "name": "Jane Doe", "email": "jane@email.com" },
+		{ "id": "2", "name": "John Doe", "email": "john@email.com" }
+	],
+	"menu": [
+		{ "id": "1", "name": "Lasagna", "price": 20 },
+		{ "id": "2", "name": "Pizza", "price": 25 },
+		{ "id": "3", "name": "Spaghetti", "price": 15 }
+	],
+	"reservations": {
+		"available": 25,
+		"taken": 5
+	}
+}
