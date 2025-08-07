@@ -1,6 +1,6 @@
-version: "3.8"
 services:
   web:
+    image: fureasu346/simplewebdb_webapachephp:v1
     build: web
     container_name: websvr
     hostname: websvr
@@ -22,6 +22,7 @@ services:
     restart: always
     
   db:
+    image: fureasu346/simplewebdb_dbmysql:v1
     build: db
     container_name: dbsvr
     hostname: dbsvr
