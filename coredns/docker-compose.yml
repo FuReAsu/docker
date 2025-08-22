@@ -1,6 +1,6 @@
 services:
   coredns:
-    image: docker.io/fureasu346/coredns:1.12.2
+    image: docker.io/fureasu346/coredns:1.12.3
     container_name: coredns
     hostname: coredns
     volumes:

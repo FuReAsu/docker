@@ -23,3 +23,10 @@ k8s-worker-2    IN  A 				192.168.56.12
 k8s-control     IN  A					192.168.56.10
 k8s-ubuntu-1    IN  A 				192.168.56.13
 k8s-ubuntu-2    IN  A 				192.168.56.14
+srv-mmr-1 			IN 	A					192.168.16.21
+srv-mmr-2				IN  A					192.168.16.22
+srv-mmr-zabbix	IN 	A					192.168.16.10
+zabbix					IN	A 			  192.168.16.10
+flask-cookie		IN  A 				192.168.64.102
+flaskrw					IN  A					192.168.64.102
+stg.spring-petclinic	IN  A		192.168.64.102

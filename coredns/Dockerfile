@@ -1,15 +1,22 @@
-FROM alpine:3.21
+FROM golang:1.25-alpine3.22 AS builder
 
-RUN mkdir -p coredns/config
+RUN apk add --no-cache git make
 
-RUN cd /coredns
+RUN mkdir /build
 
-WORKDIR /coredns
+WORKDIR /build
 
-COPY coredns /coredns
+RUN git clone https://github.com/coredns/coredns.git
 
-RUN mv /coredns/coredns /usr/local/bin
+RUN cd coredns && make
 
-RUN chmod +x /usr/local/bin/coredns
+FROM alpine:3.22 AS runner
 
-CMD ["coredns","-conf","/coredns/config/Corefile"]
+COPY --from=builder /build/coredns/coredns /usr/local/bin/
+
+EXPOSE 53/tcp
+EXPOSE 53/udp
+
+VOLUME ["/coredns/config/"]
+
+ENTRYPOINT ["coredns","-conf","/coredns/config/Corefile"]
