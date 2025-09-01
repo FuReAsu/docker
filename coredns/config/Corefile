@@ -28,7 +28,7 @@ projectx.lab {
 		errors
 }
 
-intmm.net intsmm.net int {
+intmm.net intsmm.net int intmm.lab {
 		forward . 172.20.211.41 172.20.211.42
 		log
 		errors
