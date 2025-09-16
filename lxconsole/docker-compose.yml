@@ -1,0 +1,12 @@
+services:
+  lxconsole:
+    image: 'penninglabs/lxconsole:latest'
+    restart: unless-stopped
+    ports:
+      - '80:5000'
+    volumes:
+      - lxcbackups:/opt/lxconsole/backups
+      - ./certs:/opt/lxconsole/certs
+      - ./server:/opt/lxconsole/instance
+  volumes:
+    lxcbackups:
