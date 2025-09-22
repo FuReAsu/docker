@@ -8,5 +8,13 @@ services:
       - lxcbackups:/opt/lxconsole/backups
       - ./certs:/opt/lxconsole/certs
       - ./server:/opt/lxconsole/instance
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "512M"
+        reservations:
+          cpus: "0.5"
+          memory: "256M"
 volumes:
   lxcbackups:
