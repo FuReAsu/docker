@@ -1,12 +1,10 @@
 #!/bin/sh
 
 if ! [ -z "$(ls -A /certs)" ]; then
-	echo "moving certs to /usr/local/share/ca-certificates"
-	mv /certs/* /usr/local/share/ca-certificates
-	echo "running update ca-certificates"
-	update-ca-certificates --fresh
+	echo "Copying certs to certs dir"
+	cp /certs/* /etc/ssl/certs > /dev/null
 else
-	echo "no certificates to import"
+	echo "No certs found to copy"
 fi
 
-exec /usr/local/bin/tofu "$@"
+exec /usr/bin/tofu "$@"
