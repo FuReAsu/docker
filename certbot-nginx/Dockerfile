@@ -10,6 +10,4 @@ RUN chmod +x /docker-entrypoint.sh
 
 VOLUME ["/tmp/conf.d"]
 
-ENV TZ=Asia/Yangon
-
 ENTRYPOINT ["sh","-c","/docker-entrypoint.sh"]
