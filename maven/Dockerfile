@@ -7,7 +7,12 @@ RUN sed -i 's|dl-cdn.alpinelinux.org|mirrors.aliyun.com|g' /etc/apk/repositories
     curl \
     libstdc++ \
     libc6-compat \
-    gcompat 
+    gcompat \
+    perl \
+    perl-app-cpanminus \
+    perl-xml-parser \
+    perl-xml-twig\
+    xmlstarlet 
 
 RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
     && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-2.35-r1.apk \
@@ -17,7 +22,7 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/s
 RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz \
     | tar -xz -C /opt
 
-ENV M2_HOME="/opt/maven-3.9.12"
+ENV M2_HOME="/opt/apache-maven-3.9.12"
 ENV JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 
 ENV PATH=${JAVA_HOME}/bin:${M2_HOME}/bin:${PATH}
