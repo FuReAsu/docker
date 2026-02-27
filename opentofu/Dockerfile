@@ -9,7 +9,7 @@ RUN ./install-opentofu.sh --install-method standalone --skip-verify --opentofu-v
 FROM alpine:3.22 AS runner
 LABEL org.opencontainers.image.authors="Hein Htet Zaw <h3inhtetzaw346@gmail.com>"
 
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates curl bash jq
 RUN mkdir /certs
 COPY ./tofu-entrypoint.sh .
 RUN chmod +x tofu-entrypoint.sh
